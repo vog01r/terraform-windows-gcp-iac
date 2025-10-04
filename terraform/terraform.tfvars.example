@@ -1,0 +1,17 @@
+# Exemple de fichier de variables Terraform
+# Copiez ce fichier vers terraform.tfvars et modifiez les valeurs selon vos besoins
+
+# Type de machine GCP
+machine_type = "e2-standard-2"
+
+# Taille du disque de démarrage en GB
+boot_disk_gb = 50
+
+# Nom de l'image Windows Server
+image_name = "windows-server-2025-dc-v20250913"
+
+# Projet GCP contenant l'image
+image_project = "windows-cloud"
+
+# Chemin vers la clé SSH publique (optionnel)
+ssh_public_key_path = "~/.ssh/id_rsa.pub"
