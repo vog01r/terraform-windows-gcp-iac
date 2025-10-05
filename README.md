@@ -11,32 +11,32 @@ Ce projet Terraform déploie une infrastructure Windows Server sur Google Cloud 
 ## 🏗️ Architecture
 
 ```mermaid
-graph TB
+flowchart TB
     subgraph "Google Cloud Platform"
         subgraph "VPC Network"
-            VPC[vpc-windows-{id}]
-            SUBNET[subnet-windows-{id}<br/>192.168.20.0/24]
+            VPC["vpc-windows-{id}"]
+            SUBNET["subnet-windows-{id}<br/>192.168.20.0/24"]
             
             subgraph "Firewall Rules"
-                RDP[RDP: 3389]
-                SSH[SSH: 22]
-                WINRM[WinRM: 5985/5986]
-                WEB[HTTP/HTTPS: 80/443]
-                INT[Internal: All]
+                RDP["RDP: 3389"]
+                SSH["SSH: 22"]
+                WINRM["WinRM: 5985/5986"]
+                WEB["HTTP/HTTPS: 80/443"]
+                INT["Internal: All"]
             end
             
             subgraph "Compute Instances"
-                WS1[Windows Server 1<br/>192.168.20.10<br/>Public IP]
-                WS2[Windows Server 2<br/>192.168.20.11<br/>Public IP]
+                WS1["Windows Server 1<br/>192.168.20.10<br/>Public IP"]
+                WS2["Windows Server 2<br/>192.168.20.11<br/>Public IP"]
             end
         end
     end
     
     subgraph "Services Configurés"
-        OPENSSH[OpenSSH Server]
-        WINRM_SVC[WinRM Service]
-        IIS[IIS Web Server]
-        RDP_SVC[RDP Service]
+        OPENSSH["OpenSSH Server"]
+        WINRM_SVC["WinRM Service"]
+        IIS["IIS Web Server"]
+        RDP_SVC["RDP Service"]
     end
     
     VPC --> SUBNET
