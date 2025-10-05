@@ -1,0 +1,50 @@
+# Terraform
+*.tfstate
+*.tfstate.*
+*.tfvars
+*.tfvars.json
+.terraform/
+.terraform.lock.hcl
+crash.log
+crash.*.log
+
+# Google Cloud
+key.json
+service-account-*.json
+*-key.json
+*.json
+!terraform.tfvars.example
+
+# Ansible
+ansible/inventory/generated.ini
+ansible/vars/terraform_output.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.temp
+temp/
+tmp/
+
+# Backup files
+*.bak
+*.backup
+backup/
+
+# Documentation build
+docs/_build/
+site/
