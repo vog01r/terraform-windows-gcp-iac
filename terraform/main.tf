@@ -405,27 +405,7 @@ data "google_compute_instance" "windows_server_2_info" {
   zone = google_compute_instance.windows_server_2.zone
 }
 
-# Génération du fichier d'inventaire Ansible pour Windows (optionnel)
-resource "local_file" "ansible_inventory" {
-  count = 0  # Désactivé pour l'instant, peut être réactivé si nécessaire
-  content = templatefile(
-    "${path.module}/../ansible/templates/inventory.ini.tftpl",
-    {
-      servers = local.servers
-      server1_public_ip  = google_compute_instance.windows_server_1.network_interface[0].access_config[0].nat_ip
-      server1_private_ip = google_compute_instance.windows_server_1.network_interface[0].network_ip
-      server2_public_ip  = google_compute_instance.windows_server_2.network_interface[0].access_config[0].nat_ip
-      server2_private_ip = google_compute_instance.windows_server_2.network_interface[0].network_ip
-    }
-  )
-
-  filename = "${path.module}/../ansible/inventory/generated.ini"
-
-  depends_on = [
-    google_compute_instance.windows_server_1,
-    google_compute_instance.windows_server_2
-  ]
-}
+# Note: Génération d'inventaire Ansible supprimée car non utilisée dans ce projet
 
 # Génération du fichier JSON avec les outputs Terraform
 resource "local_file" "terraform_outputs_json" {
